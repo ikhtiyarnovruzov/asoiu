@@ -1,0 +1,139 @@
+* {
+    --light-color:#F0E9D2;
+    --extra-light-color:#E6DDC4;
+    --accent-color:#678983;
+    --extra-accent-color:#323743;
+    --dark-color:#181D31;
+}
+
+body{
+    margin: 0px; font-family: Montserrat;
+}
+
+.nav-bar{
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 60px;
+    background-color: var(--dark-color);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.main{
+    display: flex;
+}
+
+.main-left-bar{
+    width: 20%;
+    background-color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    min-height: 800px;
+}
+
+.main-center-bar{
+    width: 60%;
+    background-color: #B8D4C6;
+    padding: 20px;
+    min-height: 800px;
+}
+
+.main-right-bar{
+    width: 20%;
+    background-color: var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    min-height: 800px;
+}
+
+.project-block{
+    position:relative;
+    padding-bottom:100%;
+    background: var(--extra-accent-color);
+    border-radius:50%;
+}
+/* .circle{
+    position:relative;
+    width:50%;
+    padding-bottom:50%;
+    background:gold;
+    border-radius:50%;
+  }
+  .circle h3{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    margin:0;
+  } */
+.project-block-text{
+  color: var(--light-color); 
+  text-align: center;
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    margin:0;
+}
+
+.banner-block{
+    height: 200px;
+    margin: 4px;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #323743;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.banner-block-text{
+    text-align: center;
+    color: #ffffff;
+}
+
+.highlights-block{
+    height: 200px;
+    min-height: 800px;
+    margin: 4px;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #323743;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.highlights-block-text{
+    text-align: center;
+    color: #ffffff;
+}
+
+.content-block{
+    margin: 4px;
+}
+
+.low-opacity{
+    opacity: .1;
+}
+
+.foot-bar{
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 60px;
+    background-color:#395B5F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot-bar-content-container{
+    display:flex;
+    justify-content: center;
+}
+
+.foot-button-anchor{
+    margin: 8px;
+    color: #ffffff;
+}
