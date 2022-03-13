@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 - Formula</title>
+    <script type="text/javascript" src="../scripts/decorator.js"></script>
+    <script type="text/javascript" src="../scripts/main.js"></script>
+</head>
+
+<body>
+    <form name="mainForm">
+        <label for="aArgBox">Argument a:</label><br>
+        <input id="aArgBox" name="aArgBox" type="text"><br><br>
+        <label for="bArgBox">Argument b:</label><br>
+        <input id="bArgBox" name="bArgBox" type="text"><br><br>
+        <label for="xArgBox">Argument x:</label><br>
+        <input id="xArgBox" name="xArgBox" type="text"><br><br>
+
+        <input type="checkbox" name="precisionCheckBox" id="precisionCheckBox">
+        <label for="precisionCheckBox">Apply precision</label>
+        <input type="text" name="precisionValBox" id="precisionValBox" style="width: 50px;"><br><br>
+
+        <input type="button" name="calculateButton" value="Calculate" onclick="calculateUIFunc()"><br><br>
+
+        <hr><br>
+        <script lang="javascript">appendFormulaY()</script>
+        <label for="yOutBox">y = </label>
+        <input id="yOutBox" name="yOutBox" type="text"><br><br>
+        <script lang="javascript">appendFormulaW()</script>
+        <label for="wOutBox">w = </label>
+        <input id="wOutBox" name="wOutBox" type="text">
+
+    </form>
+
+    <script lang="javascript">decorateCallback()</script>
+</body>
+
+</html>
