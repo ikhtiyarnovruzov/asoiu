@@ -1,0 +1,57 @@
+* {
+    --correct-color: green;
+    --incorrect-color: red;
+    
+    margin: 2px;
+}
+
+.main-form{
+    margin-bottom: 100px;
+}
+
+.task-container{
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #F0F0F0;
+    margin: 4px;
+}
+
+.task-description{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.task-description.correct {
+    color: var(--correct-color);
+}
+
+.task-description.incorrect {
+    color: var(--incorrect-color);
+}
+
+.task-options{
+    display: flex;
+    flex-direction: column;
+}
+
+.option-container{
+    width: auto;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 4px;
+    background-color: #e4e4e4;
+}
+
+.option{
+    margin: 0px;
+}
+
+.option.correct {
+    color: var(--correct-color);
+    font-weight: bold;
+}
+
+.option.incorrect {
+    color: var(--incorrect-color);
+    font-weight: bold;
+}

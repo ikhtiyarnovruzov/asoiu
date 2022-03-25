@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+        <h1>Quiz</h1><br>
+        <form name="mainForm" class="main-form">
+            <script>
+                let tasks = [
+                    {
+                        id: 1,
+                        point: 10,
+                        description: "Task 1",
+                        correctOptionId: 1,
+                        options: [
+                            {
+                                id: 1,
+                                name: "Correct Option",
+                            },
+                            {
+                                id: 2,
+                                name: "Option 2",
+                            },
+                            {
+                                id: 3,
+                                name: "Option 3",
+                            }
+                        ],
+                    },
+                    {
+                        id: 2,
+                        point: 10,
+                        description: "Task 2",
+                        correctOptionId: 2,
+                        options: [
+                            {
+                                id: 1,
+                                name: "Option 1",
+                            },
+                            {
+                                id: 2,
+                                name: "Correct Option",
+                            },
+                            {
+                                id: 3,
+                                name: "Option 3",
+                            },
+                            {
+                                id: 4,
+                                name: "Option 4",
+                            }
+                        ],
+                    },
+                    {
+                        id: 3,
+                        point: 20,
+                        description: "Task 3",
+                        correctOptionId: 4,
+                        options: [
+                            {
+                                id: 1,
+                                name: "Option 1",
+                            },
+                            {
+                                id: 2,
+                                name: "Option 2",
+                            },
+                            {
+                                id: 3,
+                                name: "Option 3",
+                            },
+                            {
+                                id: 4,
+                                name: "Correct Option",
+                            }
+                        ],
+                    }
+                ];
+
+                function buildTask(taskId) {
+                    let task = tasks.find(x => x.id == taskId);
+
+                    let taskOptionsString = "";
+                    let taskDescriptionString = `<div id="task${task.id}Description" class="task-description">${task.description} - ${task.point} points</div>`;
+
+                    for (let option of task.options) {
+                        taskOptionsString += `<div class="option-container"><label id="task${task.id}Radio${option.id}Label" class="option"><input type="radio" name="task${task.id}Radio" id="task${task.id}Radio${option.id}">${option.name}</label></div>`;
+                    }
+
+                    let taskOptionsContainerString = `<div class="task-options">${taskOptionsString}</div>`
+                    let taskContainerString = `<div class="task-container">${taskDescriptionString}${taskOptionsContainerString}</div>`;
+
+                    document.write(taskContainerString);
+                }
+
+                function buildTasks() {
+                    for (let task of tasks) {
+                        buildTask(task.id);
+                    }
+                }
+
+                buildTasks();
+            </script>
+
+            <input type="button" onclick="onSubmit()" name="quizSubmitButton" id="quizSubmitButtonId" value="Submit">
+
+            <div id="decorationTarget"></div>
+        </form>
+    </div>
+
+    <script>
+        const CORRECT_CLASS_NAME = "correct";
+        const INCORRECT_CLASS_NAME = "incorrect";
+
+        function onSubmit() {
+
+            const getOptionLableId = (taskId, radioId) => `task${taskId}Radio${radioId}Label`;
+            const getOptionRadioId = (taskId, radioId) => `task${taskId}Radio${radioId}`;
+            const getTaskDescriptionId = (taskId) => `task${taskId}Description`;
+            let rawTasks = [];
+
+            for (let task of tasks) {
+                let taskDescriptionElement = document.getElementById(getTaskDescriptionId(task.id));
+                let optionItems = [];
+
+                for (let option of task.options) {
+                    let optionElementId = getOptionRadioId(task.id, option.id);
+                    let optionElement = document.getElementById(optionElementId);
+                    let labelElement = document.getElementById(getOptionLableId(task.id, option.id));
+                    optionItems.push({
+                        option: option,
+                        inputElement: optionElement,
+                        labelElement: labelElement,
+                    });
+                }
+
+                // check task
+                let correctItem = optionItems.find(x => task.correctOptionId == x.option.id);
+                correctItem.labelElement.classList.add(CORRECT_CLASS_NAME);
+
+                if (correctItem.inputElement.checked) {
+                    taskDescriptionElement.classList.add(CORRECT_CLASS_NAME);
+
+                    rawTasks.push({
+                        task: task,
+                        correctItem: correctItem,
+                        selectedItem: correctItem,
+                    });
+                }
+                else {
+                    let selectedItem = optionItems.find(x => x.inputElement.checked);
+                    selectedItem.labelElement.classList.add(INCORRECT_CLASS_NAME);
+                    taskDescriptionElement.classList.add(INCORRECT_CLASS_NAME);
+
+                    rawTasks.push({
+                        task: task,
+                        correctItem: correctItem,
+                        selectedItem: selectedItem,
+                    });
+                }
+            }
+
+            let totalPoints = 0;
+            let correctTasksCount = 0;
+            let incorrectTasksCount = 0;
+            rawTasks.forEach(x => {
+                if (x.correctItem.option.id == x.selectedItem.option.id) {
+                    totalPoints += x.task.point;
+                    correctTasksCount++;
+                }
+                else {
+                    incorrectTasksCount++;
+                }
+            })
+
+            let decorationTarget = document.getElementById("decorationTarget");
+
+            let totalP = document.createElement("p");
+            totalP.innerHTML = `Total: ${totalPoints} points`;
+            decorationTarget.appendChild(totalP);
+
+            let correctTasksCountP = document.createElement("p");
+            correctTasksCountP.innerHTML = `Correct: ${correctTasksCount} tasks`;
+            decorationTarget.appendChild(correctTasksCountP);
+
+            let incorrectTasksCountP = document.createElement("p");
+            incorrectTasksCountP.innerHTML = `Incorrect: ${incorrectTasksCount} tasks`;
+            decorationTarget.appendChild(incorrectTasksCountP);
+        }
+
+    </script>
+
+</body>
+
+</html>
