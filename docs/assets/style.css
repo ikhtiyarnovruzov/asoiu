@@ -1,0 +1,123 @@
+* {
+    --background-color: white;
+    --background-accent-color: lightgrey;
+    --background-inverse-color: black;
+    --foreground-color: black;
+    --foreground-inverse-color: white;
+
+    margin: 0px;
+    font-family: 'Montserrat';
+}
+
+.navigation-bar {
+    height: 50px;
+    background-color: var(--background-inverse-color);
+}
+
+.main{
+    max-width: 1000px;
+    display: flex;
+    padding: 2px;
+    flex-direction: column;
+    margin: auto;
+}
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+}
+
+.course-block {
+    flex: 0 0 50%;
+    transition: all .2s ease-out;
+}
+
+.course-block:hover {
+    transform: scale(1.01);
+}
+
+.course-block-anchor{
+    height: 160px;
+    display: block;
+    text-decoration: none;
+    background-color: var(--background-color);
+    border: 1px solid var(--background-accent-color);
+    margin: 4px;
+    cursor: hand;
+    display: flex;
+    transition: all .2s ease-out;
+}
+
+.course-block:hover .course-block-anchor{
+    background-color: var(--background-accent-color);
+    border: 1px solid var(--background-accent-color);
+    margin: 4px;
+    border-radius: 0px;
+}
+
+.course-block-content{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.course-block-content-icon{
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+.course-block-content-title{
+    margin: 10px 0px;
+    font-size: 22px;
+}
+
+.course-block-content-link{
+    align-self: flex-start;
+    color: var(--background-accent-color);
+    font-size: 12px;
+    transition: all .2s ease-out;
+}
+
+.course-block-content-link::first-letter{
+    text-decoration: underline;
+}
+
+.course-block:hover .course-block-content-link{
+    color: var(--background-inverse-color);
+    background-color: var(--background-color);
+    font-size: 14px;
+    box-shadow: 4px 4px var(--background-inverse-color);
+}
+
+.course-block-anchor:link, .course-block-anchor:visited{
+    color: var(--foreground-color);
+}
+
+.navigation-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-bar-anchor{
+    margin: 20px;
+    text-decoration: none;
+}
+
+.navigation-bar-anchor-content::first-letter{
+    text-decoration: underline;
+}
+
+.navigation-bar-anchor:link, .navigation-bar-anchor:visited{
+    color: var(--foreground-inverse-color);
+    font-size: 20px;
+    transition: all .2s ease-out;
+}
+
+.navigation-bar-anchor:hover{
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+    box-shadow: 4px 4px var(--background-accent-color);
+}
