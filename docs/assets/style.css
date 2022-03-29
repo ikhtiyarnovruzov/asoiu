@@ -121,3 +121,73 @@
     background-color: var(--background-color);
     box-shadow: 4px 4px var(--background-accent-color);
 }
+
+.course-info{
+    margin: 20px;
+}
+
+.lab-works-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-work-block{
+    display: flex;
+    margin: 4px;
+    align-items: center;
+    border: 1px solid var(--background-accent-color);
+}
+
+.lab-work-block-index{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-inverse-color);
+    color: var(--foreground-inverse-color);
+}
+
+.lab-work-block-index.finished{
+    background-color: green;
+}
+
+.lab-work-block-description{
+    flex: 1;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.lab-work-block-stack{
+    flex: 1;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.lab-work-block-anchor{
+    width: 100px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--background-inverse-color);
+    text-decoration: none;
+    cursor: hand;
+    transition: all .2s ease-out;
+}
+
+.lab-work-block-anchor::first-letter{
+    text-decoration: underline;
+}
+
+.lab-work-block-anchor:link, .lab-work-block-anchor:visited{
+    color: var(--foreground-inverse-color);
+}
+
+.lab-work-block-anchor:hover{
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+}
+
